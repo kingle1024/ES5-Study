@@ -10,7 +10,16 @@
         고객들이 보기 편한 형태로 아래 주석처럼 출력하기 위해 prototype를 덮어써서 작성해보자!
     -->
     <script>
-        Date.prototype.toString = function(pattern) {};
+        Date.prototype.toString = function(pattern) {
+
+          pattern = pattern.toLowerCase();
+
+          return pattern
+          .replace("yyyy", this.getFullYear())
+          .replace("mm", this.getMonth())
+          .replace("dd", this.getDate());
+
+        };
 
         var date = new Date();
 
